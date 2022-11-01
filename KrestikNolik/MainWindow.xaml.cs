@@ -89,14 +89,14 @@ namespace KrestikNolik
             // победа в строке
             if (StrNum > -1)
             {
-                for (int i = 0; i < StrNum; i++)
+                for (int i = 0; i <= 2; i++)
                 { Field[StrNum,i].Btn.Background = _Bingo; }
             }
 
             // победа в столбце
             if (ColNum > -1)
             {
-                for (int i = 0; i < ColNum; i++)
+                for (int i = 0; i <=2; i++)
                 { Field[i, ColNum].Btn.Background = _Bingo; }
             }
 
@@ -105,11 +105,11 @@ namespace KrestikNolik
             {
                 if (DiaNum == 0)
                 {
-                    for (int i = 0; i < StrNum; i++)
+                    for (int i = 0; i <=2; i++)
                     { Field[i, i].Btn.Background = _Bingo; }
                 }
                 else {
-                    for (int i = 0; i < StrNum; i++)
+                    for (int i = 0; i <=2; i++)
                     { Field[2-i, i].Btn.Background = _Bingo; }
                 }
             }
@@ -335,8 +335,8 @@ namespace KrestikNolik
             {
               if (Field[j, 2 - j].PoleStatus == 0)
               {
-                Field[i, 2-j].PoleStatus = DatorSum;
-                Field[i, 2-j].Btn.Background = _Bingo;
+                Field[j, 2-j].PoleStatus = DatorSum;
+                Field[j, 2-j].Btn.Background = _Bingo;
                 HodCount++;
                 return true;
               }
@@ -359,7 +359,7 @@ namespace KrestikNolik
                     if (Field[j, j].PoleStatus == 0)
                     {
                         Field[j, j].PoleStatus = DatorSum;
-                        Field[i, 2 - j].Btn.Background = _Bingo;
+                        Field[j, j].Btn.Background = _Bingo;
                         HodCount++;
                         return true;
                     }
