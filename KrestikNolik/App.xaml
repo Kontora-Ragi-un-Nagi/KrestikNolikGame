@@ -2,8 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:KrestikNolik"
+             xmlns:resx="clr-namespace:KrestikNolik.Resources"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <resx:Strings x:Key="strs"></resx:Strings>
     </Application.Resources>
 </Application>
