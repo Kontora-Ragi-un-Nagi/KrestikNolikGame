@@ -174,6 +174,7 @@ namespace KrestikNolik
         } //bool IrUzvara()
         #endregion Ir uzvara
 
+        #region // человек сделал ход - нажал кнопку
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -192,9 +193,9 @@ namespace KrestikNolik
                     {
                         HodCount++;
                         if ((HodCount % 2) == 0) // четный ход
-                        { Field[i, j].Btn.Background = _nolik; Field[i, j].PoleStatus = 1; } // играют люди
+                        { Field[i, j].Btn.Background = _nolik; Field[i, j].PoleStatus = 1; } 
                         else // нечетный ход
-                        { Field[i, j].Btn.Background = _krestik; Field[i, j].PoleStatus = 10; } // играют люди
+                        { Field[i, j].Btn.Background = _krestik; Field[i, j].PoleStatus = 10; } 
 
                         if (HodCount > 4)
                         {
@@ -248,8 +249,9 @@ namespace KrestikNolik
                 }
             }
         }
+        #endregion // человек сделал ход - нажал кнопку
 
-        #region //компьютер играет
+        #region //надежный ход компьютера
 
         private bool Drosibas_hod() // нужна защита
         { 
@@ -296,9 +298,9 @@ namespace KrestikNolik
             // по колонкам 
               for (j = 0; j <= 2; j++)
              {
-              Summa = 0;
+              Summa = 0; SumPobedi = 0;
 
-               for (i = 0; i <= 2; i++)
+                for (i = 0; i <= 2; i++)
               {
                 if (Field[i, j].PoleStatus == CheckSum) { Summa = Summa + Field[i, j].PoleStatus; }
                 if (Field[i, j].PoleStatus == CheckPobedi) { SumPobedi = SumPobedi + Field[i, j].PoleStatus; }
@@ -321,11 +323,11 @@ namespace KrestikNolik
                 }
             }
          // по диагоналям
-         Summa = 0;
-         for (j = 0; j <= 2; j++)
+         Summa = 0; SumPobedi = 0;
+            for (j = 0; j <= 2; j++)
          {
-           if (Field[j, 2-j].PoleStatus == CheckSum) { Summa = Summa + Field[j, 2-j].PoleStatus; }
-           if (Field[j, 2-j].PoleStatus == CheckPobedi) { SumPobedi = SumPobedi + Field[j, 2-j].PoleStatus; }
+           if (Field[2-j, j].PoleStatus == CheckSum) { Summa = Summa + Field[2-j, j].PoleStatus; }
+           if (Field[2-j, j].PoleStatus == CheckPobedi) { SumPobedi = SumPobedi + Field[2-j, j].PoleStatus; }
          }
 
          if ((((Summa == 20) & (DatorO)) || ((Summa == 2) & (DatorX))) ||   // защитился
@@ -333,10 +335,10 @@ namespace KrestikNolik
          { 
             for (j = 0; j <= 2; j++)
             {
-              if (Field[j, 2 - j].PoleStatus == 0)
+              if (Field[2-j, j].PoleStatus == 0)
               {
-                Field[j, 2-j].PoleStatus = DatorSum;
-                Field[j, 2-j].Btn.Background = _Bingo;
+                Field[2-j, j].PoleStatus = DatorSum;
+                Field[2-j, j].Btn.Background = _Bingo;
                 HodCount++;
                 return true;
               }
@@ -344,7 +346,7 @@ namespace KrestikNolik
 
          } // защитился
 
-        Summa = 0;
+        Summa = 0; SumPobedi = 0;
         for (j = 0; j <= 2; j++)
         {
          Summa = Summa + Field[j, j].PoleStatus;
@@ -370,6 +372,10 @@ namespace KrestikNolik
             return false;
 
         } // Drosibas_hod()
+
+        #endregion  // надежный ход компьютера
+
+        #region //компьютер играет  
         private void Dator_hod()
         {   
             Button btn = new Button();
