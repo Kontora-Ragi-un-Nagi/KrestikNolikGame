@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MyAppTitle" xml:space="preserve">
-    <value>Дык это праграмма</value>
+    <value>Крестики - ноллики</value>
   </data>
-  <data name="MyButtonCaption" xml:space="preserve">
-    <value>Кнопка</value>
+  <data name="MyStartAgain" xml:space="preserve">
+    <value>Начни играть сначала!</value>
   </data>
   <data name="Key" xml:space="preserve">
     <value>Key</value>
   </data>
-  <data name="NewKey" xml:space="preserve">
-    <value>NewKey</value>
+  <data name="MyReadyGame" xml:space="preserve">
+    <value>Готов к игре!</value>
   </data>
 </root>
