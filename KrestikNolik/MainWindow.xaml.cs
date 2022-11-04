@@ -42,6 +42,8 @@ namespace KrestikNolik
         public bool DatorO = false;
 
         public Pole_Status[,] Field = new Pole_Status[3, 3];
+        public ObservableCollection<ButtonViewModel> Buttons { get; set; } = new ObservableCollection<ButtonViewModel>();
+
 
         #region Main window initialization
         public MainWindow()
@@ -73,6 +75,13 @@ namespace KrestikNolik
             Field[0, 0].Btn = btn00;   Field[0, 1].Btn = btn10;    Field[0, 2].Btn = btn20;
             Field[1, 0].Btn = btn01;   Field[1, 1].Btn = btn11;    Field[1, 2].Btn = btn21;
             Field[2, 0].Btn = btn02;   Field[2, 1].Btn = btn12;    Field[2, 2].Btn = btn22;
+
+
+            DataContext = this;
+
+            Buttons.Add(new ButtonViewModel("aaa"));
+            Buttons.Add(new ButtonViewModel("bbb", 1, 1));
+            Buttons.Add(new ButtonViewModel("ccc", 2));
         }
 
         #endregion Main window initialization
@@ -467,5 +476,17 @@ namespace KrestikNolik
             if (DatorX) { Dator_hod(); }
         }
         #endregion // запустить новую игру
+
+        private void btn4n4_Checked(object sender, RoutedEventArgs e)
+        {
+            ColumnDefinition Col4 = new ColumnDefinition();
+            PoleIgri.ColumnDefinitions.Add(Col4);
+
+            RowDefinition Row4 = new RowDefinition();
+            PoleIgri.RowDefinitions.Add(Row4);
+
+            Button btn4 = new Button();
+           
+        }
     }
 }
