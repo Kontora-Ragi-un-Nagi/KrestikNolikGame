@@ -12,10 +12,10 @@
 
             <Style.Triggers>
                 <Trigger Property="IsPressed" Value="True">
-                    <!--<Setter Property="Background" Value="LightBlue"/>-->
                     <Setter Property="Height" Value="130"/>
                     <Setter Property="Width" Value="130"/>
-
+                    <!--<Setter Property="Margin" Value="5,5,5,5"/>
+                    <EventSetter Event="Button.Click" Handler="Button_Click" />-->
                 </Trigger>
             </Style.Triggers>
 
@@ -25,8 +25,11 @@
     
     <StackPanel  Height="560" Width="450" >
         <TextBlock  Name="tbTablo" Height="20" Width="450" Text="Gatavs spēlei" TextAlignment="Center" Background="LightCyan" ></TextBlock>
-        <StackPanel  Height="450" Width="450" >
-            <Grid Name="PoleIgri" Background="DarkGray" Height="450" Width="450">
+        <!--<StackPanel  Height="450" Width="450" >-->
+         <!--<ItemsControl Name="PoleIgri" ItemsSource="{Binding Buttons}">
+          <ItemsControl.ItemsPanel>
+           <ItemsPanelTemplate>-->
+           <Grid  Name="PoleIgri" Background="DarkGray" Height="450" Width="450">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
@@ -49,8 +52,21 @@
                 <Button Name="btn12" Margin="5,5,5,10" Grid.Column="1" Grid.Row="2" Click="Button_Click" Style="{StaticResource XnO}" Tag="12"></Button>
                 <Button Name="btn22" Margin="5,5,10,10" Grid.Column="2" Grid.Row="2" Click="Button_Click" Style="{StaticResource XnO}" Tag="22"></Button>
             </Grid>
-
-        </StackPanel>
+                    <!--</ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Grid.Row" Value="{Binding Row}"/>
+                        <Setter Property="Grid.Column" Value="{Binding Column}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Background="{Binding BackFon}" Command="{Binding Command}" Style="{StaticResource XnO}" Width="130" Height="130"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>-->
+        <!--</StackPanel>-->
         <Button  Name="btnNewGame" Height="20" Width="450" Content="Sākt spēli no jauna" Background="LightCyan" Click="btnNewGame_Click"></Button>
 
         <StackPanel x:Name="stackPanel" Orientation="Horizontal" Height="30">
@@ -60,7 +76,7 @@
         </StackPanel>
 
         <StackPanel x:Name="stackPole" Orientation="Horizontal" Height="20">
-            <ToggleButton x:Name="btn3n3" Content="3 x 3" Width="225" Height="20" IsChecked="true"></ToggleButton>
+            <ToggleButton x:Name="btn3n3" Content="3 x 3" Width="225" Height="20" IsChecked="true" Checked="btn3n3_Checked"></ToggleButton>
             <ToggleButton x:Name="btn4n4" Content="4 x 4" Width="225" Height="20" Checked="btn4n4_Checked" ></ToggleButton>
         </StackPanel>    
     </StackPanel>

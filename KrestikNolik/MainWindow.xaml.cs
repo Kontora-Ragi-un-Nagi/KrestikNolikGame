@@ -30,18 +30,21 @@ namespace KrestikNolik
         private Brush _FonProstoi = new SolidColorBrush(Colors.LightCyan);
         private Brush _FonNichja = new SolidColorBrush(Colors.Blue);
         private Brush _FonSnacala = new SolidColorBrush(Colors.LightCoral);
-        private Brush _pusto = new SolidColorBrush(Colors.LightGray);
+      //  private Brush _pusto = new SolidColorBrush(Colors.LightGray);
         string PathImage = "Resources\\";
 
 
         public ImageBrush _nolik = new ImageBrush();
         public ImageBrush _krestik = new ImageBrush();
+        public ImageBrush _pusto = new ImageBrush();
 
         public bool GameOver = false;
         public bool DatorX = false;
         public bool DatorO = false;
+        public bool Igra_3_na_3 = true;
 
-        public Pole_Status[,] Field = new Pole_Status[3, 3];
+
+        public Pole_Status[,] Field = new Pole_Status[4, 4];
         public ObservableCollection<ButtonViewModel> Buttons { get; set; } = new ObservableCollection<ButtonViewModel>();
 
 
@@ -54,35 +57,45 @@ namespace KrestikNolik
             string PathImage = "Resources\\";
             _nolik.ImageSource = new BitmapImage(new Uri(PathImage + "Nolik.png", UriKind.RelativeOrAbsolute));
             _krestik.ImageSource = new BitmapImage(new Uri(PathImage + "Krestik.png", UriKind.RelativeOrAbsolute));
+            _pusto.ImageSource = new BitmapImage(new Uri(PathImage + "Pusto.png", UriKind.RelativeOrAbsolute));
 
             GameOver = false;
             DatorX = false;
             DatorO = false;
             CvsC.IsChecked = true;
+            Igra_3_na_3 = true;
 
             int i = 0;
             int j = 0;
             string neuTag = "";
-            for (i = 0; i <= 2; i++)
+            for (i = 0; i <= 3; i++)
             {
-                for (j = 0; j <= 2; j++)
+                for (j = 0; j <= 3; j++)
                 {
                     neuTag = j.ToString() + i.ToString(); 
                     Field[i, j] = new Pole_Status(neuTag);
                 }
             }
 
-            Field[0, 0].Btn = btn00;   Field[0, 1].Btn = btn10;    Field[0, 2].Btn = btn20;
-            Field[1, 0].Btn = btn01;   Field[1, 1].Btn = btn11;    Field[1, 2].Btn = btn21;
-            Field[2, 0].Btn = btn02;   Field[2, 1].Btn = btn12;    Field[2, 2].Btn = btn22;
+            Field[0, 0].Btn = btn00; Field[0, 1].Btn = btn10; Field[0, 2].Btn = btn20;
+            Field[1, 0].Btn = btn01; Field[1, 1].Btn = btn11; Field[1, 2].Btn = btn21;
+            Field[2, 0].Btn = btn02; Field[2, 1].Btn = btn12; Field[2, 2].Btn = btn22;
 
 
-            DataContext = this;
+            //DataContext = this;
 
-            Buttons.Add(new ButtonViewModel("aaa"));
-            Buttons.Add(new ButtonViewModel("bbb", 1, 1));
-            Buttons.Add(new ButtonViewModel("ccc", 2));
-        }
+            //Button TekBtn = new Button();
+
+            //TekBtn.Name = "btn00"; TekBtn.Tag = "00";   Field[0, 0].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 0, 0));
+            //TekBtn.Name = "btn01"; TekBtn.Tag = "01";   Field[0, 1].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 0, 1));
+            //TekBtn.Name = "btn02"; TekBtn.Tag = "02";   Field[0, 2].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 0, 2));
+            //TekBtn.Name = "btn10"; TekBtn.Tag = "10";   Field[1, 0].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 1, 0));
+            //TekBtn.Name = "btn11"; TekBtn.Tag = "11";   Field[1, 1].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 1, 1));
+            //TekBtn.Name = "btn12"; TekBtn.Tag = "12";   Field[1, 2].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 1, 2));
+            //TekBtn.Name = "btn20"; TekBtn.Tag = "20";   Field[2, 0].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 2, 0));
+            //TekBtn.Name = "btn21"; TekBtn.Tag = "21";   Field[2, 1].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 2, 1));
+            //TekBtn.Name = "btn22"; TekBtn.Tag = "22";   Field[2, 2].Btn = TekBtn;   Buttons.Add(new ButtonViewModel(TekBtn, _pusto, 2, 2));
+        } 
 
         #endregion Main window initialization
 
@@ -479,14 +492,33 @@ namespace KrestikNolik
 
         private void btn4n4_Checked(object sender, RoutedEventArgs e)
         {
-            ColumnDefinition Col4 = new ColumnDefinition();
-            PoleIgri.ColumnDefinitions.Add(Col4);
+            if (Igra_3_na_3)
+            {
+                Igra_3_na_3 = false;
 
-            RowDefinition Row4 = new RowDefinition();
-            PoleIgri.RowDefinitions.Add(Row4);
+                ColumnDefinition Col4 = new ColumnDefinition();
+                PoleIgri.ColumnDefinitions.Insert(3, new ColumnDefinition());
 
-            Button btn4 = new Button();
-           
+                RowDefinition Row4 = new RowDefinition();
+                PoleIgri.RowDefinitions.Insert( 3, new RowDefinition());
+
+                Button btn4 = new Button();
+                PoleIgri.RowDefinition = "0";
+               
+            }
+
+        }
+
+        private void btn3n3_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!Igra_3_na_3)
+            {
+                Igra_3_na_3 = true;
+
+                PoleIgri.RowDefinitions.RemoveAt(3);
+                PoleIgri.ColumnDefinitions.RemoveAt(3);
+
+            }
         }
     }
 }
