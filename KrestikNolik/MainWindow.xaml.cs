@@ -247,6 +247,7 @@ namespace KrestikNolik
                         tbTablo.Text = "Ierosinu sākt spēli no jauna !";
                     }
                 }
+                btn.IsHitTestVisible = false;
             }
         }
         #endregion // человек сделал ход - нажал кнопку
@@ -443,6 +444,8 @@ namespace KrestikNolik
         #endregion //компьютер играет
 
         #region // запустить новую игру
+
+        
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
             tbTablo.Background = _FonProstoi;
@@ -456,6 +459,7 @@ namespace KrestikNolik
                 {
                     Field[i, j].PoleStatus = 0;
                     Field[i, j].Btn.Background = _pusto;
+                    Field[i, j].Btn.IsHitTestVisible = true;
                 }
             }
 
