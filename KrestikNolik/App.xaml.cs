@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KrestikNolik.Resources;
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -17,7 +19,7 @@ namespace KrestikNolik
     {
         App()
         {
-            CultureInfo.CurrentCulture = new CultureInfo("lv-LV");
+            MyStrings.Culture = new CultureInfo("lv-LV");
         }
     }
 }
