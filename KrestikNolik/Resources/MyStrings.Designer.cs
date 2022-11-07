@@ -61,29 +61,38 @@ namespace KrestikNolik.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Key.
-        /// </summary>
-        public static string Key {
-            get {
-                return ResourceManager.GetString("Key", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на .
-        /// </summary>
-        public static string My {
-            get {
-                return ResourceManager.GetString("My", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Tik Tak Toe.
         /// </summary>
         public static string MyAppTitle {
             get {
                 return ResourceManager.GetString("MyAppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на VICTORY! Computer won!.
+        /// </summary>
+        public static string MyCompWin {
+            get {
+                return ResourceManager.GetString("MyCompWin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на I suggest starting the game again!.
+        /// </summary>
+        public static string MyIerosinuNoJauna {
+            get {
+                return ResourceManager.GetString("MyIerosinuNoJauna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на UNDRAWN ! No more moves!.
+        /// </summary>
+        public static string MyNoMoves {
+            get {
+                return ResourceManager.GetString("MyNoMoves", resourceCulture);
             }
         }
         
@@ -102,6 +111,42 @@ namespace KrestikNolik.Resources {
         public static string MyStartAgain {
             get {
                 return ResourceManager.GetString("MyStartAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Victory! You are win!.
+        /// </summary>
+        public static string MyVictory {
+            get {
+                return ResourceManager.GetString("MyVictory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на X-computer VS 0-Man.
+        /// </summary>
+        public static string XdatorsVSOman {
+            get {
+                return ResourceManager.GetString("XdatorsVSOman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на X-Man VS 0-Computer.
+        /// </summary>
+        public static string XmanVSdators {
+            get {
+                return ResourceManager.GetString("XmanVSdators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на X-Man VS 0-Man.
+        /// </summary>
+        public static string XmanVSOman {
+            get {
+                return ResourceManager.GetString("XmanVSOman", resourceCulture);
             }
         }
     }

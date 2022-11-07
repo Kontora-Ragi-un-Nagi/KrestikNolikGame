@@ -118,15 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MyAppTitle" xml:space="preserve">
-    <value>Крестики - ноллики</value>
-  </data>
-  <data name="MyStartAgain" xml:space="preserve">
-    <value>Начни играть сначала!</value>
-  </data>
-  <data name="Key" xml:space="preserve">
-    <value>Key</value>
+    <value>Крестики - Нолики</value>
   </data>
   <data name="MyReadyGame" xml:space="preserve">
     <value>Готов к игре!</value>
+  </data>
+  <data name="MyStartAgain" xml:space="preserve">
+    <value>Начать играть сначала!</value>
+  </data>
+  <data name="MyVictory" xml:space="preserve">
+    <value>Победа! Ты выиграл!</value>
+  </data>
+  <data name="MyNoMoves" xml:space="preserve">
+    <value>Ничья! Больше ходов нет!</value>
+  </data>
+  <data name="MyIerosinuNoJauna" xml:space="preserve">
+    <value>Я решил начать игру сначала !</value>
+  </data>
+  <data name="XmanVSOman" xml:space="preserve">
+    <value>X-человек против 0-человека</value>
+  </data>
+  <data name="XmanVSdators" xml:space="preserve">
+    <value>X-Человек против 0-компьютера</value>
+  </data>
+  <data name="XdatorsVSOman" xml:space="preserve">
+    <value>X-компьютер против 0-человека</value>
+  </data>
+  <data name="MyCompWin" xml:space="preserve">
+    <value>ПОБЕДА! КОМПЬЮТЕР выиграл!</value>
   </data>
 </root>

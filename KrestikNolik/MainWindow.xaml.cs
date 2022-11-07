@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Reflection;
+using KrestikNolik.Resources;
 
 namespace KrestikNolik
 {
@@ -203,13 +204,14 @@ namespace KrestikNolik
                             {
                                 GameOver = true;
                                 tbTablo.Background = _FonPobedi;
-                                tbTablo.Text = "UZVARA! Tu uzvarēji!";
+                                tbTablo.Text = MyStrings.MyVictory;
+                                //tbTablo.Text = "UZVARA! Tu uzvarēji!";
                             }
                             else if (HodCount == 9)
                             {
                                 GameOver = true;
                                 tbTablo.Background = _FonNichja;
-                                tbTablo.Text = "NEIZŠĶIRTS ! Vairāk gājienu nav!";
+                                tbTablo.Text = MyStrings.MyNoMoves;
                             }
                         }
 
@@ -223,28 +225,28 @@ namespace KrestikNolik
                                 {
                                     GameOver = true;
                                     tbTablo.Background = _FonPobedi;
-                                    tbTablo.Text = "UZVARA! DATORS uzvarēja!";
+                                    tbTablo.Text = MyStrings.MyCompWin;
                                 }
                                 else if (HodCount == 9)
                                 {
                                     GameOver = true;
 
                                     tbTablo.Background = _FonNichja;
-                                    tbTablo.Text = "NEIZŠĶIRTS ! Vairāk gājienu nav!";
+                                    tbTablo.Text = MyStrings.MyNoMoves;
                                 }
                             }
                         }
                         else if ((DatorX | DatorO) && (HodCount < 9) && (GameOver == true))
                         {
                             tbTablo.Background = _FonSnacala;
-                            tbTablo.Text = "Ierosinu sākt spēli no jauna !";
+                            tbTablo.Text = MyStrings.MyIerosinuNoJauna;
                         }
 
                     }
                     else if (GameOver == true)
                     {
                         tbTablo.Background = _FonSnacala;
-                        tbTablo.Text = "Ierosinu sākt spēli no jauna !";
+                        tbTablo.Text = MyStrings.MyIerosinuNoJauna;
                     }
                 }
                 btn.IsHitTestVisible = false;
@@ -449,7 +451,7 @@ namespace KrestikNolik
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
             tbTablo.Background = _FonProstoi;
-            tbTablo.Text = "Gatavs spēlei";
+            tbTablo.Text = MyStrings.MyReadyGame;
 
             int i = 0;
             int j = 0;

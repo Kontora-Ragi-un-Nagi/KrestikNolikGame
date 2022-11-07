@@ -121,9 +121,30 @@
     <value>Krustiņi - Nullītes</value>
   </data>
   <data name="MyReadyGame" xml:space="preserve">
-    <value>Gatavs spēlēt!</value>
+    <value>Gatavs spēlēi!</value>
   </data>
   <data name="MyStartAgain" xml:space="preserve">
     <value>Sākt spēli no jauna!</value>
+  </data>
+  <data name="MyVictory" xml:space="preserve">
+    <value>Uzvara! Tu uzvarēji!</value>
+  </data>
+  <data name="MyNoMoves" xml:space="preserve">
+    <value>Neizšķirts! Vairāk gājienu nav!</value>
+  </data>
+  <data name="MyIerosinuNoJauna" xml:space="preserve">
+    <value>Ierosinu sākt spēli no jauna !</value>
+  </data>
+  <data name="XmanVSOman" xml:space="preserve">
+    <value>X-Cilvēks VS O-Cilvēks</value>
+  </data>
+  <data name="XmanVSdators" xml:space="preserve">
+    <value>X-Cilvēks VS 0-Dators</value>
+  </data>
+  <data name="XdatorsVSOman" xml:space="preserve">
+    <value>X-Dators VS O-Cilvēks</value>
+  </data>
+  <data name="MyCompWin" xml:space="preserve">
+    <value>UZVARA! DATORS uzvarēja!</value>
   </data>
 </root>
