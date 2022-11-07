@@ -60,18 +60,14 @@ namespace KrestikNolik.Resources {
             }
         }
         
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Tik Tak Toe.
-        /// </summary>
+
         public static string MyAppTitle {
             get {
                 return ResourceManager.GetString("MyAppTitle", resourceCulture);
             }
         }
         
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на VICTORY! Computer won!.
-        /// </summary>
+
         public static string MyCompWin {
             get {
                 return ResourceManager.GetString("MyCompWin", resourceCulture);
@@ -132,18 +128,13 @@ namespace KrestikNolik.Resources {
             }
         }
         
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на X-Man VS 0-Computer.
-        /// </summary>
         public static string XmanVSdators {
             get {
                 return ResourceManager.GetString("XmanVSdators", resourceCulture);
             }
         }
         
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на X-Man VS 0-Man.
-        /// </summary>
+
         public static string XmanVSOman {
             get {
                 return ResourceManager.GetString("XmanVSOman", resourceCulture);
