@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KrestikNolik"
         xmlns:m="clr-namespace:KrestikNolik"
         mc:Ignorable="d"
-        Height="560" Width="465" Title="{Binding Source={StaticResource strs}, Path=MyAppTitle}">
+        Height="620" Width="465" Title="{Binding Source={StaticResource strs}, Path=MyAppTitle}">
     <Window.Resources>
          <Style x:Key="XnO" TargetType="{x:Type Button}">
             
@@ -14,8 +14,7 @@
                 <Trigger Property="IsPressed" Value="True">
                 <!--<Setter Property="Background" Value="LightBlue"/>-->
                 <Setter Property="Height" Value="130"/>
-                <Setter Property="Width" Value="130"/>
-                
+                <Setter Property="Width" Value="130"/>                
                 </Trigger>
             </Style.Triggers>
            
@@ -24,7 +23,7 @@
     </Window.Resources>
     
     <StackPanel  Height="560" Width="450" >
-      <TextBlock  Name="tbTablo" Height="20" Width="450" Text="Gatavs spēlei" TextAlignment="Center" Background="LightCyan" ></TextBlock>
+        <TextBlock  Name="tbTablo" Height="20" Width="450" Text="{Binding Source={StaticResource strs}, Path=MyReadyGame}" TextAlignment="Center" Background="LightCyan" ></TextBlock>
       <Grid  Background="DarkGray" Height="450" Width="450">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -48,12 +47,12 @@
         <Button Name="btn12" Margin="5,5,5,10" Grid.Column="1" Grid.Row="2" Click="Button_Click" Style="{StaticResource XnO}" Tag="12"></Button>
         <Button Name="btn22" Margin="5,5,10,10" Grid.Column="2" Grid.Row="2" Click="Button_Click" Style="{StaticResource XnO}" Tag="22"></Button>    
     </Grid>
-        <Button  Name="btnNewGame" Height="20" Width="450" Content="Sākt spēli no jauna" Background="LightCyan" Click="btnNewGame_Click"></Button>
+        <Button  Name="btnNewGame" Height="20" Width="450" Content="{Binding Source={StaticResource strs}, Path=MyStartAgain}" Background="LightCyan" Click="btnNewGame_Click"></Button>
 
-        <StackPanel x:Name="stackPanel" Orientation="Horizontal" Height="50">
-            <RadioButton Name="CvsC" Margin="5,5,5,5" Height="20" GroupName="Spēle" Content="X-Cilvēks vs O-Cilvēks" IsChecked="True" />
-            <RadioButton Name="CvsD" Margin="5,5,5,5" Height="20" GroupName="Spēle" Content="X-Cilvēks vs O-Dators" />
-            <RadioButton Name="DvsC" Margin="5,5,5,5" Height="20" GroupName="Spēle" Content="X-Dators vs O-Cilvēks" />
+        <StackPanel x:Name="stackPanel" Orientation="Vertical" Height="100">
+            <RadioButton Name="CvsC" Margin="5,5,5,5" Height="16" GroupName="Spēle" Content="{Binding Source={StaticResource strs}, Path=XmanVSOman}" IsChecked="True" />
+            <RadioButton Name="CvsD" Margin="5,5,5,5" Height="16" GroupName="Spēle" Content="{Binding Source={StaticResource strs}, Path=XmanVSdators}" />
+            <RadioButton Name="DvsC" Margin="5,5,5,5" Height="16" GroupName="Spēle" Content="{Binding Source={StaticResource strs}, Path=XdatorsVSOman}" />
         </StackPanel>
     </StackPanel>
 </Window>
