@@ -83,23 +83,19 @@ namespace KrestikNolik
         #region Uzvaras linija
         private void UzvarasLinija(int Sum, int StrNum, int ColNum, int DiaNum)
         {
-
-            ImageBrush _Bingo = new ImageBrush();
-            if (Sum == 3)
-            { _Bingo = new ImageBrush(new BitmapImage(new Uri(PathImage + "Nolik_U.png", UriKind.Relative))); }
-            else { _Bingo = new ImageBrush(new BitmapImage(new Uri(PathImage + "krestik_U.png", UriKind.Relative))); }
+            ImageBrush _Bingo = DoSomethings(Sum);
 
             // победа в строке
             if (StrNum > -1)
             {
                 for (int i = 0; i <= 2; i++)
-                { Field[StrNum,i].Btn.Background = _Bingo; }
+                { Field[StrNum, i].Btn.Background = _Bingo; }
             }
 
             // победа в столбце
             if (ColNum > -1)
             {
-                for (int i = 0; i <=2; i++)
+                for (int i = 0; i <= 2; i++)
                 { Field[i, ColNum].Btn.Background = _Bingo; }
             }
 
@@ -108,13 +104,24 @@ namespace KrestikNolik
             {
                 if (DiaNum == 0)
                 {
-                    for (int i = 0; i <=2; i++)
+                    for (int i = 0; i <= 2; i++)
                     { Field[i, i].Btn.Background = _Bingo; }
                 }
-                else {
-                    for (int i = 0; i <=2; i++)
-                    { Field[2-i, i].Btn.Background = _Bingo; }
+                else
+                {
+                    for (int i = 0; i <= 2; i++)
+                    { Field[2 - i, i].Btn.Background = _Bingo; }
                 }
+            }
+
+            ImageBrush DoSomethings(int Sum)
+            {
+                ImageBrush _Bingo = new ImageBrush();
+                if (Sum == 3)
+                { _Bingo = new ImageBrush(new BitmapImage(new Uri(PathImage + "Nolik_U.png", UriKind.Relative))); }
+                else { _Bingo = new ImageBrush(new BitmapImage(new Uri(PathImage + "krestik_U.png", UriKind.Relative))); }
+
+                return _Bingo;
             }
         } //UzvarasLinija
         #endregion // Uzvaras linija
