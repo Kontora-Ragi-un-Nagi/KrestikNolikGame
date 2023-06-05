@@ -24,6 +24,8 @@ namespace KrestikNolik
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Reģistrē izmaiņas
+
         public int HodCount = 0;
 
         private Brush _FonPobedi = new SolidColorBrush(Colors.Gold);
