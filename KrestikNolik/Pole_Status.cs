@@ -12,7 +12,6 @@ namespace KrestikNolik
     public class Pole_Status
         // состояние ячейки игрового поля
     {
-        private string poleTag = "";
         public string PoleTag { get; set; }
 
         private int poleStatus = 0;
