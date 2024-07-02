@@ -57,14 +57,32 @@ namespace KrestikNolik
             {
                 for (j = 0; j <= 2; j++)
                 {
-                    neuTag = j.ToString() + i.ToString(); 
+                    neuTag = j.ToString() + i.ToString();
                     Field[i, j] = new Pole_Status(neuTag);
                 }
             }
 
-            Field[0, 0].Btn = btn00;   Field[0, 1].Btn = btn10;    Field[0, 2].Btn = btn20;
-            Field[1, 0].Btn = btn01;   Field[1, 1].Btn = btn11;    Field[1, 2].Btn = btn21;
-            Field[2, 0].Btn = btn02;   Field[2, 1].Btn = btn12;    Field[2, 2].Btn = btn22;
+            Field[0, 0].Btn = btn00; Field[0, 1].Btn = btn10; Field[0, 2].Btn = btn20;
+            Field[1, 0].Btn = btn01; Field[1, 1].Btn = btn11; Field[1, 2].Btn = btn21;
+            Field[2, 0].Btn = btn02; Field[2, 1].Btn = btn12; Field[2, 2].Btn = btn22;
+
+            LockAllFields();
+        }
+
+        private void LockAllFields()
+        {
+            foreach (var item in Field)
+            {
+                item.Btn.IsHitTestVisible = false;
+            }
+        }
+
+        private void UnLockAllFields()
+        {
+            foreach (var item in Field)
+            {
+                item.Btn.IsHitTestVisible = true;
+            }
         }
 
         #endregion Main window initialization
@@ -102,6 +120,8 @@ namespace KrestikNolik
                     { Field[2 - i, i].Btn.Background = _Bingo; }
                 }
             }
+
+            btnNewGame.IsEnabled = true;
 
             ImageBrush DoSomethings(int Sum)
             {
@@ -210,6 +230,7 @@ namespace KrestikNolik
                                 GameOver = true;
                                 tbTablo.Background = _FonNichja;
                                 tbTablo.Text = MyStrings.MyNoMoves;
+                                btnNewGame.IsEnabled = true;
                             }
                         }
 
@@ -231,6 +252,7 @@ namespace KrestikNolik
 
                                     tbTablo.Background = _FonNichja;
                                     tbTablo.Text = MyStrings.MyNoMoves;
+                                    btnNewGame.IsEnabled = true;
                                 }
                             }
                         }
@@ -238,6 +260,7 @@ namespace KrestikNolik
                         {
                             tbTablo.Background = _FonSnacala;
                             tbTablo.Text = MyStrings.MyIerosinuNoJauna;
+                            btnNewGame.IsEnabled = true;
                         }
 
                     }
@@ -245,6 +268,7 @@ namespace KrestikNolik
                     {
                         tbTablo.Background = _FonSnacala;
                         tbTablo.Text = MyStrings.MyIerosinuNoJauna;
+                        btnNewGame.IsEnabled = true;
                     }
                 }
                 btn.IsHitTestVisible = false;
@@ -448,6 +472,9 @@ namespace KrestikNolik
         
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
+            UnLockAllFields();
+
+
             tbTablo.Background = _FonProstoi;
             tbTablo.Text = MyStrings.MyReadyGame;
 
@@ -468,7 +495,14 @@ namespace KrestikNolik
             DatorX = (DvsC.IsChecked == true);
             DatorO = (CvsD.IsChecked == true);
 
+            if (!(DatorX || DatorO)) { LockNewGame(); } else btnNewGame.IsEnabled = true;  
+
             if (DatorX) { Dator_hod(); }
+        }
+
+        private void LockNewGame()
+        {
+            btnNewGame.IsEnabled = false;
         }
         #endregion // запустить новую игру
     }
