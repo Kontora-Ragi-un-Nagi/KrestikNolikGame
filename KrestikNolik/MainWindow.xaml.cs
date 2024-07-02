@@ -223,6 +223,7 @@ namespace KrestikNolik
                                 GameOver = true;
                                 tbTablo.Background = _FonPobedi;
                                 tbTablo.Text = MyStrings.MyVictory;
+                                UnlockAllCheckers();
                                 //tbTablo.Text = "UZVARA! Tu uzvarēji!";
                             }
                             else if (HodCount == 9)
@@ -230,7 +231,7 @@ namespace KrestikNolik
                                 GameOver = true;
                                 tbTablo.Background = _FonNichja;
                                 tbTablo.Text = MyStrings.MyNoMoves;
-                                btnNewGame.IsEnabled = true;
+                                UnlockAllCheckers();
                             }
                         }
 
@@ -245,6 +246,7 @@ namespace KrestikNolik
                                     GameOver = true;
                                     tbTablo.Background = _FonPobedi;
                                     tbTablo.Text = MyStrings.MyCompWin;
+                                    UnlockAllCheckers();
                                 }
                                 else if (HodCount == 9)
                                 {
@@ -252,7 +254,7 @@ namespace KrestikNolik
 
                                     tbTablo.Background = _FonNichja;
                                     tbTablo.Text = MyStrings.MyNoMoves;
-                                    btnNewGame.IsEnabled = true;
+                                    UnlockAllCheckers();
                                 }
                             }
                         }
@@ -260,7 +262,7 @@ namespace KrestikNolik
                         {
                             tbTablo.Background = _FonSnacala;
                             tbTablo.Text = MyStrings.MyIerosinuNoJauna;
-                            btnNewGame.IsEnabled = true;
+                            UnlockAllCheckers();
                         }
 
                     }
@@ -268,11 +270,17 @@ namespace KrestikNolik
                     {
                         tbTablo.Background = _FonSnacala;
                         tbTablo.Text = MyStrings.MyIerosinuNoJauna;
-                        btnNewGame.IsEnabled = true;
+                        UnlockAllCheckers();
                     }
                 }
                 btn.IsHitTestVisible = false;
             }
+        }
+
+        private void UnlockAllCheckers()
+        {
+            btnNewGame.IsEnabled = true;
+            checkPanel.IsEnabled = true;
         }
         #endregion // человек сделал ход - нажал кнопку
 
@@ -495,14 +503,15 @@ namespace KrestikNolik
             DatorX = (DvsC.IsChecked == true);
             DatorO = (CvsD.IsChecked == true);
 
-            if (!(DatorX || DatorO)) { LockNewGame(); } else btnNewGame.IsEnabled = true;  
+            if (!(DatorX || DatorO)) { LockNewGame(false); } else LockNewGame(true);
 
             if (DatorX) { Dator_hod(); }
         }
 
-        private void LockNewGame()
+        private void LockNewGame(bool IsNewButtonActive)
         {
-            btnNewGame.IsEnabled = false;
+            btnNewGame.IsEnabled = IsNewButtonActive;
+            checkPanel.IsEnabled = false;
         }
         #endregion // запустить новую игру
     }

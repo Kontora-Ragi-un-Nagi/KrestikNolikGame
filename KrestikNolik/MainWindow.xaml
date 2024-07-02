@@ -49,7 +49,7 @@
     </Grid>
         <Button  Name="btnNewGame" Height="20" Width="450" Content="{Binding Source={StaticResource strs}, Path=MyStartAgain}" Background="LightCyan" Click="btnNewGame_Click"></Button>
 
-        <StackPanel x:Name="stackPanel" Orientation="Vertical" Height="100">
+        <StackPanel x:Name="checkPanel" Orientation="Vertical" Height="100">
             <RadioButton Name="CvsC" Margin="5,5,5,5" Height="16" GroupName="Spēle" Content="{Binding Source={StaticResource strs}, Path=XmanVSOman}" IsChecked="True" />
             <RadioButton Name="CvsD" Margin="5,5,5,5" Height="16" GroupName="Spēle" Content="{Binding Source={StaticResource strs}, Path=XmanVSdators}" />
             <RadioButton Name="DvsC" Margin="5,5,5,5" Height="16" GroupName="Spēle" Content="{Binding Source={StaticResource strs}, Path=XdatorsVSOman}" />
