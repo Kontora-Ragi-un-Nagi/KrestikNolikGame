@@ -136,7 +136,7 @@ namespace KrestikNolik
         #endregion // Uzvaras linija
 
         #region Ir uzvara
-        private bool IrUzvara()
+        private int IrUzvara()
         {
             int i = 0;
             int j = 0;
@@ -152,7 +152,7 @@ namespace KrestikNolik
                 if ((Summa == 30) || (Summa == 3))
                 {
                     UzvarasLinija(Summa, i, -1, -1);
-                    return ((Summa == 30) || (Summa == 3));
+                    goto ret;
                 }
             }
             // по колонкам 
@@ -167,7 +167,7 @@ namespace KrestikNolik
                 if ((Summa == 30) || (Summa == 3))
                 {
                     UzvarasLinija(Summa, -1, j, -1);
-                    return ((Summa == 30) || (Summa == 3));
+                    goto ret;
                 }
             }
             // по диагоналям
@@ -177,7 +177,7 @@ namespace KrestikNolik
             if ((Summa == 30) || (Summa == 3))
             {
                 UzvarasLinija(Summa, -1, -1, 1);
-                return ((Summa == 30) || (Summa == 3));
+                goto ret;
             }
 
             Summa = 0;
@@ -186,10 +186,10 @@ namespace KrestikNolik
             if ((Summa == 30) || (Summa == 3))
             {
                 UzvarasLinija(Summa, -1, -1, 0);
-                return ((Summa == 30) || (Summa == 3));
+                goto ret;
             }
 
-            return ((Summa == 30) || (Summa == 3));
+ret:            return Summa;
         } //bool IrUzvara()
         #endregion Ir uzvara
 
@@ -212,19 +212,25 @@ namespace KrestikNolik
                     {
                         HodCount++;
                         if ((HodCount % 2) == 0) // четный ход
-                        { Field[i, j].Btn.Background = _nolik; Field[i, j].PoleStatus = 1; } 
+                        { Field[i, j].Btn.Background = _nolik; Field[i, j].PoleStatus = 1; }
                         else // нечетный ход
-                        { Field[i, j].Btn.Background = _krestik; Field[i, j].PoleStatus = 10; } 
+                        { Field[i, j].Btn.Background = _krestik; Field[i, j].PoleStatus = 10; }
 
                         if (HodCount > 4)
                         {
-                            if (IrUzvara() == true)
+                            if (IrUzvara() == 30)
                             {
                                 GameOver = true;
                                 tbTablo.Background = _FonPobedi;
-                                tbTablo.Text = MyStrings.MyVictory;
+                                tbTablo.Text = "Krustiņu spēlētājs uzvarējis";
                                 UnlockAllCheckers();
-                                //tbTablo.Text = "UZVARA! Tu uzvarēji!";
+                            }
+                            else if (IrUzvara() == 3)
+                            {
+                                GameOver = true;
+                                tbTablo.Background = _FonPobedi;
+                                tbTablo.Text = "Aplīšu spēlētājs uzvarējis";
+                                UnlockAllCheckers();
                             }
                             else if (HodCount == 9)
                             {
@@ -241,7 +247,7 @@ namespace KrestikNolik
                             Dator_hod();
                             if (HodCount > 4)
                             {
-                                if (IrUzvara() == true)
+                                if (IrUzvara() == 30 || IrUzvara() == 3)
                                 {
                                     GameOver = true;
                                     tbTablo.Background = _FonPobedi;
