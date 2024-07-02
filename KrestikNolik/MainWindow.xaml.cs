@@ -21,7 +21,7 @@ namespace KrestikNolik
         private Brush _FonIgri = new SolidColorBrush(Colors.LightBlue);
         private Brush _FonProstoi = new SolidColorBrush(Colors.LightCyan);
         private Brush _FonNichja = new SolidColorBrush(Colors.Blue);
-        private Brush _FonSnacala = new SolidColorBrush(Colors.LightCoral);
+        private Brush _FonSnacala = new SolidColorBrush(Colors.LightYellow);
         private Brush _pusto = new SolidColorBrush(Colors.LightGray);
         string PathImage = "Resources\\";
 
@@ -261,7 +261,7 @@ namespace KrestikNolik
                         else if ((DatorX | DatorO) && (HodCount < 9) && (GameOver == true))
                         {
                             tbTablo.Background = _FonSnacala;
-                            tbTablo.Text = MyStrings.MyIerosinuNoJauna;
+                            tbTablo.Text = MyStrings.MyVictory;
                             UnlockAllCheckers();
                         }
 
