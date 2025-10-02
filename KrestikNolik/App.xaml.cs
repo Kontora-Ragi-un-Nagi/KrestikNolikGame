@@ -20,6 +20,7 @@ namespace KrestikNolik
         App()
         {
             MyStrings.Culture = new CultureInfo("lv-LV");
+            ///
         }
     }
 }

@@ -414,6 +414,9 @@ ret:            return Summa;
 
         #endregion  // надежный ход компьютера
 
+
+        // Sveiki ! Es ceru, ka jums patīk šī spēle "Krustiņi un nulles"!
+
         #region //компьютер играет  
         private void Dator_hod()
         {   
